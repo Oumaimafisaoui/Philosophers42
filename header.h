@@ -6,6 +6,7 @@
 #include <sys/syscall.h>
 # include <fcntl.h>
 #include <unistd.h>
+# include <sys/time.h>
 
 # define INT_MAX 2147483647	
 typedef	pthread_mutex_t	mutex;

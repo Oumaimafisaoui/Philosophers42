@@ -1,5 +1,7 @@
 #include "header.h"
 
+
+// should initialize the mutexes
 void    mutex_initialize(t_all *all)
 {
     int index;
