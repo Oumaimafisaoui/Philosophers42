@@ -13,7 +13,9 @@ int main(int argc, char **argv)
     all.p.forks = malloc(sizeof(mutex) * all.p.philo_num);
     if(!all.p.forks)
         exit_program(4);
-    if(!mutex_initialize(&all) || philos(&all))
-         exit_program();
-
+    if(!mutex_initialize(&all))
+         exit_program(5);
+    if(!philos(&all))
+        exit_program(6);
+    return (0);
 }
