@@ -18,10 +18,10 @@ void	exit_program(int flag)
 		ft_putstr_fd("\033[91m Invalid numbers of args !!!! Try again\033[0m", 2);
 	if(flag == 2)
 		ft_putstr_fd("\033[91m Problem in argument limits !!!! Try again\033[0m", 2);
-	if(flag == 3)
-		ft_putstr_fd("\033[91m Problem in malloc !!!! Try again\033[0m", 2);
-	if(flag == 4)
-		ft_putstr_fd("\033[91m Problem in forks !!!! Try again\033[0m", 2);
+	// if(flag == 3)
+	// 	ft_putstr_fd("\033[91m Problem in malloc !!!! Try again\033[0m", 2);
+	// if(flag == 4)
+	// 	ft_putstr_fd("\033[91m Problem in forks !!!! Try again\033[0m", 2);
 	if(flag == 5)
 		ft_putstr_fd("\033[91m Problem in mutex !!!! Try again\033[0m", 2);
 	if (flag == 6)

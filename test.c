@@ -15,16 +15,16 @@ void *funct1(void *arg)
    
 for(;;)
 {
-    //pthread_mutex_lock(&lock);
+    pthread_mutex_lock(&lock);
     
     if (i >= MAXT)
     {
-        //pthread_mutex_unlock(&lock);
+        pthread_mutex_unlock(&lock);
         return (NULL);
     
     }
     ++i;
-    //pthread_mutex_unlock(&lock);
+    pthread_mutex_unlock(&lock);
     printf("\033[0;32m i = %lld \033[0m\n", i);
  }
     
@@ -41,12 +41,6 @@ int main(void)
     {
         pthread_create(&t[i], NULL, funct1, NULL);
     }
-
-    // for(i = 0; i < MAX; ++i)
-    // {
-    //     printf("\033[0;32m thread %d = %lld \033[0m\n", i, pthread_self());
-    // }
-
 
     for(i = 0; i < MAX; ++i)
     {

@@ -14,32 +14,27 @@ typedef	pthread_mutex_t	mutex;
 
 typedef struct s_propreties
 {
-	int philo_num;
-	int p_eat;
-	int p_dead;
-	int p_sleep;
-	long long start_time;
-	int stop;
-	mutex *forks;
-	int must_eat;
-	
-
+	int philo_num; //number of philosophers
+	int p_eat; // time spent on eating
+	int p_dead; //time to wait untill dying
+	int p_sleep; //time when philosopher is sleeping
+	long long start_time; //time when program started
+	int stop; //if program should stop
+	mutex *forks; //mutexes for forks
+	int must_eat; //times when philosopher must eat
 }t_propreties;
 
 typedef struct s_phil
 {
-	pthread_t thread;
-    int id;
-    long int last_meal;
-    int meal_num;
-    int left_fork;
-    int right_fork;
-
+    int id; //id of the philosopher
+	int last_eat; //time when philosopher ate last time
+ 	int num_eat; //number of completed meals
+	int finish; //if philosopher is finished
+	pthread_t thread; //threads created
 }t_phil;
 
-
 typedef struct s_all
-{
+{ 
     t_phil *philo;
     t_propreties p;
 
