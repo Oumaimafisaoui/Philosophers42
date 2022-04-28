@@ -31,6 +31,9 @@ typedef struct s_phil
  	int num_eat; //number of completed meals
 	int finish; //if philosopher is finished
 	pthread_t thread; //threads created
+	int fork_left; //mutex for left fork
+	int fork_right; //mutex for right fork
+	mutex *print;
 }t_phil;
 
 typedef struct s_all

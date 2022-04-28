@@ -6,15 +6,25 @@ int    mutex_initialize(t_all *all)
 {
     int index;
 
-    index = 0;
-    all->p.forks = malloc(sizeof(mutex) * all.p.philo_num);
+    all->p.forks = malloc(sizeof(mutex) * all->p.philo_num);
     if(!all->p.forks)
         return (0);
+	index = 0;
     while(index < all->p.philo_num)
     {
-        pthread_mutex_init(&all->p.forks[index], NULL);
+        if(pthread_mutex_init(&all->p.forks[index], NULL))
+		{
+			free(all->p.forks);
+			return (0);
+		}
         index++;
     }
+	if(pthread_mutex_init(&all->philo->print, NULL))
+	{
+			free(all->p.forks);
+			return (0);
+	}
+	return (1);
 }
 
 
