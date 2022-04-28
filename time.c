@@ -1,28 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   time.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/28 22:36:51 by oufisaou          #+#    #+#             */
+/*   Updated: 2022/04/28 23:43:16 by oufisaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "header.h"
 
-long int	get_time(long int start)
+long int	the_time(void)
 {
 	struct timeval	tp;
 	long int		time;
 
     if (gettimeofday(&tp, NULL) == -1)
-		ft_exit("Gettimeofday returned -1\n");
+		exit_program(7);
 	gettimeofday(&tp, NULL);
-	time = tp.tv_sec * 1000 + tp.tv_usec / 1000; //tp_tv_sec is in microseconds ans tp_tv_usec is in seconds
-	if (start)
-		time -= start;
+	time = (tp.tv_sec * 1000) + (tp.tv_usec / 1000); //TV_SEC = secondes, TV_USEC = microsecondes , WE WANT MILLISECONDS
+	// if (start)
+	// 	time -= start;
 	return (time);
 }
+// void	ft_usleep(long int time)
+// {
+// 	long int	start;
 
-
-void	ft_usleep(long int time_in_ms)
-{
-	long int	start_time;
-
-	start_time = 0;
-	start_time = actual_time();
-	while ((actual_time() - start_time) < time_in_ms)
-		usleep(time_in_ms / 10);
-}
+// 	start = 0;
+// 	start = the_time();
+// 	while ((the_time() - start) < time)
+// 		usleep(time / 10);
+// }
 
 

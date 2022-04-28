@@ -1,13 +1,44 @@
-#include "header.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philos.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
+/*   Updated: 2022/04/28 23:51:19 by oufisaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// should create the threads
+
+#include "header.h"
 
 int    philos(t_all *all)
 {
     int index;
+	void *void_philo;
 
     index = 0;
-    all->p.start_time = the_time(); 
+    while (index < all->p.philo_num)
+    {
+		void_philo = (void *)&(all->philo[index]);
+        all->philo[index].id = index;
+        all->philo[index].last_eat = all->p.start_time;
+        all->philo[index].num_eat = 0;
+        all->philo[index].finish = 0;
+		all->philo[index].fork_left = &all->p.forks[all->philo[index].id];
+		all->philo[index].fork_right = &all->p.forks[(all->philo[index].id + 1) % all->p.philo_num];
+        if(pthread_create(&all->philo[index].thread, NULL, &philos_routine, void_philo))
+			return (0);
+        index++;
+    }
+	return(1);
+}
+
+
+int  philo_initialize(t_all *all)
+{
+	all->p.start_time = the_time(); 
     all->p.stop = 0;
     all->philo = malloc(sizeof(t_phil) * all->p.philo_num);
     if(!all->philo)
@@ -15,40 +46,22 @@ int    philos(t_all *all)
         free(all->p.forks);
         return (0);
     }
-    while (index < all->p.philo_num)
-    {
-        all->philo[index].id = index;
-        all->philo[index].last_eat = all->p.start_time;
-        all->philo[index].num_eat = 0;
-        all->philo[index].finish = 0;
-		all->philo[index].fork_left = \
-		 &all->p.forks[all->philo[index].id];
-		all->philo[index].fork_right = \ 
-		&all->p.forks[(all->philo[index].id + 1) % all->p.philo_num];
-        pthread_create(&all->philo[index].thread, NULL, &philos_thread, &all->philo[index]);
-        index++;
-    }
-	return(1);
+	if (!philos(all))
+	{
+		free(all->philo);
+		return (0);
+	}
+	return (1);
 }
 
-// void *philos_thread(void *arg)
-// {
-//      t_all *phil;
+void *philos_routine(void *arg)
+ {
+// 	t_all *all;
+// 	t_phil *philo_two;
 
-//     phil->philo = (t_phil *)arg;
-//     if(phil->id % 2 == 1)
-//         think(phil, phil->p.p_eat);
-//     while(!phil->p.stop)
-//     {
-//         if(phil->id % 2 == 0)
-//             think(phil, phil->p.p_eat);
-//         else
-//             eat(phil, phil->p.p_eat);
-//     }
-
-
-
-
-// }
+// 	philo_two = (t_phil *)arg;
+// 	all->philo = philo_two;
+	
+}
 
 

@@ -9,7 +9,7 @@ int main(int argc, char **argv)
         exit_program(2);
     if(!mutex_initialize(&all))
          exit_program(5);
-    if(!philos(&all))
-        exit_program(6);
+	if(!philo_initialize(&all))
+		exit_program(6);
     return (0);
 }

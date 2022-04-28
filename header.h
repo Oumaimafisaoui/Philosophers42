@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   header.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
+/*   Updated: 2022/04/28 23:46:36 by oufisaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef HEADER_H
 # define HEADER_H
 #include <stdio.h>
@@ -22,6 +34,8 @@ typedef struct s_propreties
 	int stop; //if program should stop
 	mutex *forks; //mutexes for forks
 	int must_eat; //times when philosopher must eat
+	mutex *eat;
+	mutex *print;
 }t_propreties;
 
 typedef struct s_phil
@@ -33,7 +47,6 @@ typedef struct s_phil
 	pthread_t thread; //threads created
 	int fork_left; //mutex for left fork
 	int fork_right; //mutex for right fork
-	mutex *print;
 }t_phil;
 
 typedef struct s_all
@@ -62,5 +75,16 @@ int	ft_is_digit(char *s);
 
 size_t	ft_strlen(const char *str);
 
+int    mutex_initialize(t_all *all);
+int  philo_initialize(t_all *all);
+
+int    philos(t_all *all);
+
+int  philo_initialize(t_all *all);
+
+void *philos_routine(void *arg);
+long int	the_time(void);
+
+void	ft_usleep(long int time);
 
 #endif

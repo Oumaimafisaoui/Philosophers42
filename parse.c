@@ -37,9 +37,7 @@ int arguments_check(int argc, char **argv)
 
 int	limits_check(t_all *args)
 {
-	if (args->p.philo_num < 2 || args->p.philo_num > 200
-		|| args->p.p_dead  < 60 || args->p.p_eat < 60
-		|| args->p.p_sleep < 60)
+	if (args->p.philo_num <= 0 || args->p.p_sleep <= 0 || args->p.p_eat <= 0 || args->p.p_dead <= 0)
 		return (0);
 	return (1);
 }

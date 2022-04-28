@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_program.c                                     :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:50:08 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/21 21:08:44 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:42:09 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ void	exit_program(int flag)
 		ft_putstr_fd("\033[91m Problem in mutex !!!! Try again\033[0m", 2);
 	if (flag == 6)
 		ft_putstr_fd("\033[91m Problem in philo !!!! Try again\033[0m", 2);
+	if(flag == 7)
+		ft_putstr_fd("\033[91m Gettimeofday failled !!\n!!!! Try again\033[0m", 2);
 	exit(1);
 }
