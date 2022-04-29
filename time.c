@@ -24,14 +24,15 @@ long int	the_time(void)
 	time = (tp.tv_sec * 1000) + (tp.tv_usec / 1000); //TV_SEC = secondes, TV_USEC = microsecondes , WE WANT MILLISECONDS
 	return (time);
 }
-// void	ft_usleep(long int time)
-// {
-// 	long int	start;
+void	ft_usleep(long int time)
+{
+	long int	start;
+	t_all *all;
 
-// 	start = 0;
-// 	start = the_time();
-// 	while ((the_time() - start) < time)
-// 		usleep(time / 10);
-// }
+	start = 0;
+	start = the_time();
+	while ((the_time() - all->p.start_time) < time)
+		usleep(time / 10);
+}
 
 

@@ -47,6 +47,7 @@ typedef struct s_phil
 	pthread_t thread; //threads created
 	int fork_left; //mutex for left fork
 	int fork_right; //mutex for right fork
+	t_propreties *tmp;
 }t_phil;
 
 typedef struct s_all

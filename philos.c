@@ -16,19 +16,19 @@
 int    philos(t_all *all)
 {
     int index;
-	void *void_philo = all;
+	// void *void_philo = all;
 
     index = 0;
     while (index < all->p.philo_num)
     {
-		void_philo = (void *)&(all->philo[index]);
+		all->philo[index].tmp = &all->p;
         all->philo[index].id = index;
         all->philo[index].last_eat = all->p.start_time;
         all->philo[index].num_eat = 0;
         all->philo[index].finish = 0;
 		all->philo[index].fork_left = index;
 		all->philo[index].fork_right = (index + 1) % all->p.philo_num;
-        if(pthread_create(&all->philo[index].thread, NULL, &philos_routine, void_philo))
+        if(pthread_create(&all->philo[index].thread, NULL, &philos_routine, &all->philo[index]))
 			return (0);
         index++;
     }
@@ -45,7 +45,7 @@ int  philo_initialize(t_all *all)
 	all->philo = malloc(sizeof(t_phil) * all->p.philo_num);
     if(!all->philo)
     {
-        free(&all->p.forks);
+        free(all->p.forks);
         return (0);
     }
 	if(philos(all) == -1)
@@ -60,8 +60,53 @@ int  philo_initialize(t_all *all)
 
 void *philos_routine(void *arg)
  {
+	 t_phil *philo_two;
+
+	 philo_two = (t_phil *)arg;
+
+	 if(philo_two->tmp->philo_num == 2)
+	 { 
+		 printf("Philosopher %d is thinking\n", philo_two->id);
+		 usleep(11111);
+		 return (NULL);
+	 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	 //printf("%d\n", ((t_phil *)arg)->id);
-	 printf("%d\n", ((t_all *)arg)->p.philo_num);
+	//  printf("%d\n", ((t_all *)arg)->p.philo_num);
 	//  printf("hello\n");
 
 	// t_all *all;
