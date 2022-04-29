@@ -64,14 +64,14 @@ void *philos_routine(void *arg)
 
 	 philo_two = (t_phil *)arg;
 
-	 if(philo_two->tmp->philo_num == 2)
-	 { 
-		 printf("Philosopher %d is thinking\n", philo_two->id);
-		 usleep(11111);
-		 return (NULL);
-	 }
-
-
+	//  if(philo_two->tmp->philo_num == 2)
+	//  { 
+	// 	 printf("Philosopher %d is thinking\n", philo_two->id);
+	// 	 usleep(11111);
+	// 	 return (NULL);
+	//  }
+	if(philo_two->id % 2 == 0)
+		ft_usleep(philo_two->tmp->time_eat * 1000);
 
 
 
