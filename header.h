@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 00:09:29 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 01:45:31 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct s_propreties
 	int stop; //if program should stop
 	mutex *forks; //mutexes for forks
 	int must_eat; //times when philosopher must eat
-	mutex *eat;
-	mutex *print;
+	mutex eat;
+	mutex print;
 }t_propreties;
 
 typedef struct s_phil
@@ -88,4 +88,5 @@ void	ft_usleep(long int time);
 
 long int	the_time(void);
 
+void	end_all(t_all *all);
 #endif

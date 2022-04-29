@@ -1,7 +1,7 @@
-SRC = main.c mutex.c utils.c exit.c parse.c philos.c time.c
+SRC = main.c mutex.c utils.c exit.c parse.c philos.c time.c end_all.c
 OBJ = $(SRC:.c=.o)
 
-NAME  = pilo
+NAME  = philo
 
 all : $(NAME)
 
