@@ -40,6 +40,11 @@ int    mutex_initialize(t_all *all)
 			free(all->p.forks);
 			return (1);
 	}
+	if(pthread_mutex_init(&all->p.dead, NULL))
+	{
+			free(all->p.forks);
+			return (1);
+	}
 	return (0);
 }
 

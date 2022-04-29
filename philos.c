@@ -71,7 +71,20 @@ void *philos_routine(void *arg)
 	// 	 return (NULL);
 	//  }
 	if(philo_two->id % 2 == 0)
-		ft_usleep(philo_two->tmp->time_eat * 1000);
+		ft_usleep(10000);
+	while (protection(philo_two) == 1)
+	{
+		if(protection(philo_two) == 1)
+			eat_round(philo_two);
+		if(protection(philo_two) == 1)
+			sleep_round(philo_two);
+		if(protection(philo_two) == 1)
+			think_round(philo_two);
+	}
+	return (philo_two);
+ }
+	
+	
 
 
 

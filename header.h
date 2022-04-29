@@ -36,6 +36,7 @@ typedef struct s_propreties
 	int must_eat; //times when philosopher must eat
 	mutex eat;
 	mutex print;
+	mutex dead;
 }t_propreties;
 
 typedef struct s_phil
