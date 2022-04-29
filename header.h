@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 01:45:31 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 02:39:46 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,5 @@ void	ft_usleep(long int time);
 long int	the_time(void);
 
 void	end_all(t_all *all);
+void	print(char *str, t_all *all);
 #endif
