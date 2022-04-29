@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 02:39:46 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:15:57 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_phil
     int id; //id of the philosopher
 	int last_eat; //time when philosopher ate last time
  	int num_eat; //number of completed meals
-	int finish; //if philosopher is finished
+	//int finish; //if philosopher is finished
 	pthread_t thread; //threads created
 	int fork_left; //mutex for left fork
 	int fork_right; //mutex for right fork
@@ -58,7 +58,7 @@ typedef struct s_all
 
 }t_all;
 
-
+int protection(t_phil *ph);
 int	limits_check(t_all *args);
 
 int arguments_check(int argc, char **argv);
@@ -91,5 +91,5 @@ void	ft_usleep(long int time);
 long int	the_time(void);
 
 void	end_all(t_all *all);
-void	print(char *str, t_all *all);
+void	print(t_phil *philo, char *str);
 #endif

@@ -1,5 +1,27 @@
 #include "header.h"
 
+
+// int philo_eat(t_phil *philo)
+// {
+// 	pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // void    think(t_all *all, int t)
 // {
 //     if(all->philo->stop)
@@ -10,19 +32,6 @@
 // }
 
 
-int	ft_philo_do(t_game *game, t_philo *philo)
-{
-	pthread_mutex_lock(&(game->forks[philo->left_fork]));
-	ft_printf(game, "has taken a fork", philo->id);
-	pthread_mutex_lock(&(game->forks[philo->right_fork]));
-	ft_printf(game, "has taken a fork", philo->id);
-	ft_philo_eat(philo->game, philo);
-	pthread_mutex_unlock(&(game->forks[philo->left_fork]));
-	pthread_mutex_unlock(&(game->forks[philo->right_fork]));
-	if (game->eat_check)
-		return (-1);
-	return (0);
-}
 
 
 // void sleep_p(t_all *all)

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 05:27:06 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:26:28 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int    philos(t_all *all)
         all->philo[index].id = index;
         all->philo[index].last_eat = all->p.start_time;
         all->philo[index].num_eat = 0;
-        all->philo[index].finish = 0;
+        //all->philo[index].finish = 0;
 		all->philo[index].fork_left = index;
 		all->philo[index].fork_right = (index + 1) % all->p.philo_num;
         if(pthread_create(&all->philo[index].thread, NULL, &philos_routine, &all->philo[index]))
@@ -61,29 +61,57 @@ int  philo_initialize(t_all *all)
 void *philos_routine(void *arg)
  {
 	 t_phil *philo_two;
+	 
+	philo_two = (t_phil *)arg;
+	if(philo_two->id % 2 == 0)
+		usleep(10000);
+	if(philo_two->tmp->philo_num == 1)
+	{
+		print(philo_two, "I'm alone, didn't have another fork, I died...\n");
+		return (NULL); 
+	}
+	// while(!(philo_two->tmp->stop))
+	// {
+	// 	if(philo_eat(philo_two) != 0)
+	// 		break ;
 
-	 philo_two = (t_phil *)arg;
+	return (NULL);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//  if(philo_two->tmp->philo_num == 2)
 	//  { 
 	// 	 printf("Philosopher %d is thinking\n", philo_two->id);
 	// 	 usleep(11111);
 	// 	 return (NULL);
-	//  }
-	if(philo_two->id % 2 == 0)
-		ft_usleep(10000);
-	while (protection(philo_two) == 1)
-	{
-		if(protection(philo_two) == 1)
-			eat_round(philo_two);
-		if(protection(philo_two) == 1)
-			sleep_round(philo_two);
-		if(protection(philo_two) == 1)
-			think_round(philo_two);
-	}
-	return (philo_two);
- }
-	
+// 	//  }
+
+// 	while (protection(philo_two) == 1)
+// 	{
+// 		if(protection(philo_two) == 1)
+// 			eat_round(philo_two);
+// 		if(protection(philo_two) == 1)
+// 			sleep_round(philo_two);
+// 		if(protection(philo_two) == 1)
+// 			think_round(philo_two);
+// 	}
+// 	return (philo_two);
+//  }
+ 
 	
 
 
@@ -160,7 +188,16 @@ void *philos_routine(void *arg)
 	// 		}
 	// 	}
 	// }
-	return (NULL);
-}
 
 
+// int protection(t_phil *ph)
+// {
+//     int var;
+
+//     var = 1;   //1 means the philosopher is alive
+//     pthread_mutex_lock(&ph->tmp->dead);
+//     if((ph->tmp->stop) == 1)
+//            var = 0; //0 means the philosopher is dead
+//     pthread_mutex_unlock(&ph->tmp->dead);
+//     return (var);   
+// }
