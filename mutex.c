@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:53 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/28 23:50:22 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/28 23:54:32 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int    mutex_initialize(t_all *all)
 		}
         index++;
     }
-	if(pthread_mutex_init(&(all->p.print), NULL))
+	if(pthread_mutex_init(all->p.print, NULL))
 	{
 			free(all->p.forks);
 			return (0);
 	}
-	if(pthread_mutex_init(&(all->p.eat), NULL))
+	if(pthread_mutex_init(all->p.eat, NULL))
 	{
 			free(all->p.forks);
 			return (0);

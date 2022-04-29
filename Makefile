@@ -1,4 +1,4 @@
-SRC = main.c mutex.c utils.c exit.c parse.c philos.c 
+SRC = main.c mutex.c utils.c exit.c parse.c philos.c time.c
 OBJ = $(SRC:.c=.o)
 
 NAME  = pilo

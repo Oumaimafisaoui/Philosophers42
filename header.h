@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/28 23:46:36 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 00:09:29 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ int    philos(t_all *all);
 int  philo_initialize(t_all *all);
 
 void *philos_routine(void *arg);
-long int	the_time(void);
 
 void	ft_usleep(long int time);
+
+long int	the_time(void);
 
 #endif
