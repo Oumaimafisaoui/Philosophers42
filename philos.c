@@ -32,6 +32,7 @@ int    philos(t_all *all)
 			return (0);
         index++;
     }
+	is_dead(all);
 	return(1);
 }
 

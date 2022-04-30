@@ -24,4 +24,5 @@ void	end_all(t_all *all)
 	free(all->philo);
 	pthread_mutex_destroy(&all->p.print);
 	pthread_mutex_destroy(&all->p.eat);
+	pthread_mutex_destroy(&all->p.dead);
 }

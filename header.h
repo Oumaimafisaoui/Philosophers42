@@ -94,4 +94,6 @@ long int	the_time(void);
 void	end_all(t_all *all);
 void	print(t_phil *philo, char *str, int flag);
 int philo_eat(t_phil *philo);
+void check_eat(t_all *all);
+void  is_dead(t_all *all);
 #endif

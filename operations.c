@@ -27,10 +27,42 @@ int philo_eat(t_phil *philo)
 }
 
 
+void  is_dead(t_all *all)
+{
+	int index;
+
+	while(!(all->p.flag))
+	{
+		index = 0;
+		while(index < all->p.philo_num && (!(all->p.stop)))
+		{
+			pthread_mutex_lock(&(all->p.eat));
+			if((the_time() - all->philo[index].last_eat) > all->p.p_sleep)
+			{
+				print(&all->philo[index], "I'm dead\n", 0);
+				all->p.stop = 1;
+			}
+			pthread_mutex_unlock(&(all->p.eat));
+			index++;
+		}
+		if(all->p.stop)
+			break ;
+		check_eat(all);
+	}
+}
 
 
 
-
+void check_eat(t_all *all)
+{
+	int index;
+	
+	index = 0;
+	while(all->p.must_eat != 0 && index < all->p.philo_num && all->philo->num_eat > all->p.must_eat)
+         index++;
+	if(index == all->p.philo_num)
+		all->p.flag = 1;
+}
 
 
 
