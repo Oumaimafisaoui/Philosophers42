@@ -88,7 +88,7 @@ int  philo_initialize(t_all *all);
 void *philos_routine(void *arg);
 
 void	ft_usleep(long int time);
-
+void time_sleep(t_propreties *all);
 long int	the_time(void);
 
 void	end_all(t_all *all);

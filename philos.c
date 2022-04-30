@@ -70,8 +70,9 @@ void *philos_routine(void *arg)
 	{
 		if(philo_eat(philo_two))
 			break ;
-		//philo_sleep(philo_two);
-		//philo_think(philo_two);
+		print(philo_two, "is sleeping\n", 0);
+		time_sleep(philo_two->tmp);
+		print(philo_two, "is thinking\n", 0);
 	}  
 	return (NULL);
 }
