@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/30 01:30:50 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/30 01:35:04 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void *philos_routine(void *arg)
 	 
 	philo_two = (t_phil *)arg;
 	if(philo_two->id % 2 == 0)
-		ft_usleep(10);
+		usleep(10000);
 	while(!(philo_two->tmp->stop))
 	{
 		if(philo_eat(philo_two))
