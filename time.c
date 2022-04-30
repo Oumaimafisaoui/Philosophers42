@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:36:51 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 05:28:06 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 23:54:19 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ long int	the_time(void)
 }
 void	ft_usleep(long int time)
 {
-	long int	start;
-	t_all *all;
 
-	start = 0;
-	start = the_time();
-	while ((the_time() - all->p.start_time) < time)
-		usleep(time / 10);
+    long int    start_time;
+
+    start_time = 0;
+    start_time = the_time();
+    while ((the_time() - start_time) < time)
+        usleep(time / 10);
 }
 
 

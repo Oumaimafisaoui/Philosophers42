@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 21:26:28 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/30 01:30:50 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int    philos(t_all *all)
     {
 		all->philo[index].tmp = &all->p;
         all->philo[index].id = index;
-        all->philo[index].last_eat = all->p.start_time;
+        all->philo[index].last_eat = the_time();
         all->philo[index].num_eat = 0;
         //all->philo[index].finish = 0;
 		all->philo[index].fork_left = index;
@@ -64,17 +64,14 @@ void *philos_routine(void *arg)
 	 
 	philo_two = (t_phil *)arg;
 	if(philo_two->id % 2 == 0)
-		usleep(10000);
-	if(philo_two->tmp->philo_num == 1)
+		ft_usleep(10);
+	while(!(philo_two->tmp->stop))
 	{
-		print(philo_two, "I'm alone, didn't have another fork, I died...\n");
-		return (NULL); 
-	}
-	// while(!(philo_two->tmp->stop))
-	// {
-	// 	if(philo_eat(philo_two) != 0)
-	// 		break ;
-
+		if(philo_eat(philo_two))
+			break ;
+		//philo_sleep(philo_two);
+		//philo_think(philo_two);
+	}  
 	return (NULL);
 }
 

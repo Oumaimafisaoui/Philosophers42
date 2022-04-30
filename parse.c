@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 00:10:26 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 02:07:08 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 22:22:21 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	parse_init(t_all *args, int argc, char **argv)
 	args->p.p_dead = ft_atoi(argv[2]);
 	args->p.p_eat = ft_atoi(argv[3]);
 	args->p.p_sleep = ft_atoi(argv[4]);
+	args->p.flag = 0;
 	if (argc == 5)
 		args->p.must_eat = 0;
 	else

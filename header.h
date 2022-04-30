@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 21:15:57 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/29 22:34:04 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ typedef struct s_propreties
 	mutex eat;
 	mutex print;
 	mutex dead;
+	int flag;
 }t_propreties;
 
 typedef struct s_phil
 {
-    int id; //id of the philosopher
-	int last_eat; //time when philosopher ate last time
+    int id; //id of the philosopher 
  	int num_eat; //number of completed meals
+	long long last_eat;
 	//int finish; //if philosopher is finished
 	pthread_t thread; //threads created
 	int fork_left; //mutex for left fork
@@ -91,5 +92,6 @@ void	ft_usleep(long int time);
 long int	the_time(void);
 
 void	end_all(t_all *all);
-void	print(t_phil *philo, char *str);
+void	print(t_phil *philo, char *str, int flag);
+int philo_eat(t_phil *philo);
 #endif
