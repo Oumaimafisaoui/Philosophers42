@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/01 20:10:51 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/01 23:03:25 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 int    philos(t_all *all)
 {
     int index;
-	// void *void_philo = all;
-
+	
     index = 0;
     while (index < all->p.philo_num)
     {
@@ -25,7 +24,6 @@ int    philos(t_all *all)
         all->philo[index].id = index;
         all->philo[index].last_eat = the_time();
         all->philo[index].num_eat = 0;
-        //all->philo[index].finish = 0;
 		all->philo[index].fork_left = index;
 		all->philo[index].fork_right = (index + 1) % all->p.philo_num;
         if(pthread_create(&all->philo[index].thread, NULL, &philos_routine, &all->philo[index]))
@@ -65,139 +63,14 @@ void *philos_routine(void *arg)
 	 
 	philo_two = (t_phil *)arg;
 	if(philo_two->id % 2 == 0)
-		usleep(10000);
+		usleep(100);
 	while(!(philo_two->tmp->stop))
 	{
 		if(philo_eat(philo_two))
 			break ;
 		print(philo_two, "is sleeping\n", 0);
-		// time_sleep(philo_two->tmp);
 		usleep(philo_two->tmp->p_sleep * 1000);
 		print(philo_two, "is thinking\n", 0);
 	}  
 	return (NULL);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//  if(philo_two->tmp->philo_num == 2)
-	//  { 
-	// 	 printf("Philosopher %d is thinking\n", philo_two->id);
-	// 	 usleep(11111);
-	// 	 return (NULL);
-// 	//  }
-
-// 	while (protection(philo_two) == 1)
-// 	{
-// 		if(protection(philo_two) == 1)
-// 			eat_round(philo_two);
-// 		if(protection(philo_two) == 1)
-// 			sleep_round(philo_two);
-// 		if(protection(philo_two) == 1)
-// 			think_round(philo_two);
-// 	}
-// 	return (philo_two);
-//  }
- 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 //printf("%d\n", ((t_phil *)arg)->id);
-	//  printf("%d\n", ((t_all *)arg)->p.philo_num);
-	//  printf("hello\n");
-
-	// t_all *all;
-	// t_phil *philo_two;
-
-	// philo_two = (t_phil *)arg;
-
-	// if(all->p.philo_num == 1)
-	// {
-	// 	  printf("h\n");
-	// 	  return (NULL);
-	// }
-	// else
-	// 	printf("h2\n");
-	// if(philo_two->id % 2)
-	// 	ft_usleep(10000);
-	// while(!all->p.stop)
-	// {
-	// 	if(!all->p.must_eat)
-	// 	{
-	// 		pthread_mutex_lock(&all->p.eat);
-	// 		all->p.must_eat = 1;
-	// 		pthread_mutex_unlock(&all->p.eat);
-	// 	}
-	// 	if(!all->p.stop)
-	// 	{
-	// 		pthread_mutex_lock(&all->p.forks[philo_two->fork_left]);
-	// 		pthread_mutex_lock(&all->p.forks[philo_two->fork_right]);
-	// 		if(!all->p.stop)
-	// 		{
-	// 			pthread_mutex_lock(&all->p.eat);
-	// 			all->p.must_eat--;
-	// 			pthread_mutex_unlock(&all->p.eat);
-	// 			philo_two->num_eat++;
-	// 			philo_two->last_eat = the_time();
-	// 			pthread_mutex_unlock(&all->p.forks[philo_two->fork_left]);
-	// 			pthread_mutex_unlock(&all->p.forks[philo_two->fork_right]);
-	// 		}
-	// 	}
-	// }
-
-
-// int protection(t_phil *ph)
-// {
-//     int var;
-
-//     var = 1;   //1 means the philosopher is alive
-//     pthread_mutex_lock(&ph->tmp->dead);
-//     if((ph->tmp->stop) == 1)
-//            var = 0; //0 means the philosopher is dead
-//     pthread_mutex_unlock(&ph->tmp->dead);
-//     return (var);   
-// }

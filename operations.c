@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/01 22:03:54 by oufisaou          #+#    #+#             */
+/*   Updated: 2022/05/01 23:02:38 by oufisaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 
@@ -5,6 +17,8 @@ int philo_eat(t_phil *philo)
 {
 	if(philo->tmp->philo_num == 1)
 	{
+		printf("%lld\n", philo->tmp->start_time);
+		printf("%ld", the_time());
 		pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
 		print(philo, "has taken left fork\n", 0);
 		print(philo, "I'm alone, didn't have another fork, I died...\n", 1);
@@ -51,34 +65,13 @@ void  is_dead(t_all *all)
 	}
 }
 
-
-
 void check_eat(t_all *all)
 {
 	int index;
 	
 	index = 0;
-	while(all->p.must_eat != 0 && index < all->p.philo_num && all->philo[index].num_eat > all->p.must_eat)
+	while(index < all->p.philo_num && all->p.must_eat != 0 && all->philo[index].num_eat > all->p.must_eat)
          index++;
 	if(index == all->p.philo_num)
 		all->p.flag = 1;
 }
-
-
-// void time_sleep(t_propreties *all)
-// {
-// 	long long sleep;
-// 	long long start;
-// 	long long now;
-
-// 	start = the_time();
-// 	sleep = (long long)(all->p_sleep);
-// 	while (!(all->stop))
-// 	{
-// 		now = the_time();
-// 		if(now >= sleep + start)
-// 			break ;
-// 		usleep(10);
-// 	}
-	
-// }
