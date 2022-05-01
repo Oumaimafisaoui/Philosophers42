@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/30 01:35:04 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/01 20:10:51 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void *philos_routine(void *arg)
 		if(philo_eat(philo_two))
 			break ;
 		print(philo_two, "is sleeping\n", 0);
-		time_sleep(philo_two->tmp);
+		// time_sleep(philo_two->tmp);
+		usleep(philo_two->tmp->p_sleep * 1000);
 		print(philo_two, "is thinking\n", 0);
 	}  
 	return (NULL);

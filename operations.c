@@ -37,9 +37,9 @@ void  is_dead(t_all *all)
 		while(index < all->p.philo_num && (!(all->p.stop)))
 		{
 			pthread_mutex_lock(&(all->p.eat));
-			if((the_time() - all->philo[index].last_eat) > all->p.p_sleep)
+			if((the_time() - all->philo[index].last_eat) > all->p.p_dead)
 			{
-				print(&all->philo[index], "I'm dead\n", 0);
+				print(&all->philo[index], "is dead\n", 0);
 				all->p.stop = 1;
 			}
 			pthread_mutex_unlock(&(all->p.eat));
@@ -58,27 +58,27 @@ void check_eat(t_all *all)
 	int index;
 	
 	index = 0;
-	while(all->p.must_eat != 0 && index < all->p.philo_num && all->philo->num_eat > all->p.must_eat)
+	while(all->p.must_eat != 0 && index < all->p.philo_num && all->philo[index].num_eat > all->p.must_eat)
          index++;
 	if(index == all->p.philo_num)
 		all->p.flag = 1;
 }
 
 
-void time_sleep(t_propreties *all)
-{
-	long long sleep;
-	long long start;
-	long long now;
+// void time_sleep(t_propreties *all)
+// {
+// 	long long sleep;
+// 	long long start;
+// 	long long now;
 
-	start = the_time();
-	sleep = (long long)(all->p_sleep);
-	while (!(all->stop))
-	{
-		now = the_time();
-		if(now >= sleep + start)
-			break ;
-		usleep(10);
-	}
+// 	start = the_time();
+// 	sleep = (long long)(all->p_sleep);
+// 	while (!(all->stop))
+// 	{
+// 		now = the_time();
+// 		if(now >= sleep + start)
+// 			break ;
+// 		usleep(10);
+// 	}
 	
-}
+// }
