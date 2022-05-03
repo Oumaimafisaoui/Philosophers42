@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 22:03:54 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/01 23:02:38 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/03 01:28:39 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int philo_eat(t_phil *philo)
 {
 	if(philo->tmp->philo_num == 1)
 	{
-		printf("%lld\n", philo->tmp->start_time);
-		printf("%ld", the_time());
 		pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
-		print(philo, "has taken left fork\n", 0);
-		print(philo, "I'm alone, didn't have another fork, I died...\n", 1);
+		print_one(philo, "has taken left fork\n", 0);
+		print_one(philo, "I'm alone, didn't have another fork, I died...\n", 1);
 	}	
 	pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
 	print(philo, "has taken left fork\n", 0);
@@ -34,7 +32,8 @@ int philo_eat(t_phil *philo)
 	philo->last_eat = the_time();
 	pthread_mutex_unlock(&(philo->tmp->eat));
 	philo->num_eat++;
-	usleep(philo->tmp->p_eat * 1000);
+	ft_usleep(philo->tmp->p_eat);
+	//eat_time(philo);
 	if(philo->tmp->flag)
 		return (1);
 	return (0);
@@ -75,3 +74,6 @@ void check_eat(t_all *all)
 	if(index == all->p.philo_num)
 		all->p.flag = 1;
 }
+
+//code the time to sleep and eat and sleep
+

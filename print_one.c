@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   print_one.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 02:26:15 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/02 22:15:47 by oufisaou         ###   ########.fr       */
+/*   Created: 2022/05/02 22:16:16 by oufisaou          #+#    #+#             */
+/*   Updated: 2022/05/02 22:17:09 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	print(t_phil *philo, char *str, int flag)
+
+void	print_one(t_phil *philo, char *str, int flag)
 {
 	long long time;
 	
 	time = the_time();
 	pthread_mutex_lock(&philo->tmp->print);
-
+	
+	if(time != philo->tmp->start_time)
+	{
+		time = philo->tmp->start_time;
+	}
 	if(!philo->tmp->stop)
 	{
 		printf("[%lld]", time - philo->tmp->start_time);

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 22:34:04 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/03 01:13:27 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int  philo_initialize(t_all *all);
 
 void *philos_routine(void *arg);
 
-void	ft_usleep(long int time);
 void time_sleep(t_propreties *all);
 long int	the_time(void);
 
@@ -96,4 +95,8 @@ void	print(t_phil *philo, char *str, int flag);
 int philo_eat(t_phil *philo);
 void check_eat(t_all *all);
 void  is_dead(t_all *all);
+void	print_one(t_phil *philo, char *str, int flag);
+
+void	ft_usleep(long n);
+
 #endif
