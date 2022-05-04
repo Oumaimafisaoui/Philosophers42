@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 17:39:49 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 20:22:37 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,6 @@ int  philo_initialize(t_all *all)
 	return (1);
 }
 
-
-//all the odd number stop for a while then the even number start eating, in the meanwhile the odd
-//numbers start sleeping for the sleeping amount, then thinks or eat if the number of meals is less than the number of meals
-//
 void *philos_routine(void *arg)
  {
 	 t_phil *philo_two;
@@ -76,6 +72,5 @@ void *philos_routine(void *arg)
 		ft_usleep(philo_two->tmp->p_sleep);
 		print(philo_two, "is thinking\n", 0);
 	}
-	//ft_putstr_fd("done!", 1);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:16:16 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 18:08:10 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:28:20 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ void	print_one(t_phil *philo, char *str, int flag)
 	}
 	if(!philo->tmp->stop)
 	{
-		printf("[%lld]", time - philo->tmp->start_time);
-		printf("            ");
-		printf("[%d]           ", philo->id);
-		printf("\033[92m%s\033[0m", str);
+		ft_putnbr_fd(time - philo->tmp->start_time, 1);
+		ft_putstr_fd("          ", 1);
+		ft_putnbr_fd(philo->id, 1);
+		ft_putstr_fd("          ", 1);
+		ft_putstr_fd(str, 1);
 	}
 	pthread_mutex_unlock(&philo->tmp->print);
-	// if(flag)
-	// 	exit(1);
 }

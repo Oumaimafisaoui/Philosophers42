@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 02:06:55 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 05:00:36 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 20:33:24 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int main(int argc, char **argv)
 
 	index = 0;
     if(!arguments_check(argc, argv))
+	{
         exit_program(1);
+		return(0);
+	}
     if(!parse_init(&all, argc, argv))
         exit_program(2);
     if(mutex_initialize(&all))
