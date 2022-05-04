@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 02:26:15 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 15:48:13 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:30:04 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	print(t_phil *philo, char *str, int flag)
 		ft_putstr_fd(str, 1);
 	}
 	pthread_mutex_unlock(&philo->tmp->print);
-	if(flag)
-		exit(1);
+	// if(flag)
+	// 	exit(1);
 }
