@@ -6,12 +6,11 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:16:38 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 01:45:57 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:35:18 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
 
 void	end_all(t_all *all)
 {

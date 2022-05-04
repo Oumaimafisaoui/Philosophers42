@@ -6,13 +6,12 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:53 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/29 05:09:23 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:51:36 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-// should initialize the mutexes
 int    mutex_initialize(t_all *all)
 {
     int index;
@@ -47,5 +46,3 @@ int    mutex_initialize(t_all *all)
 	}
 	return (0);
 }
-
-//return 1 if it fails
