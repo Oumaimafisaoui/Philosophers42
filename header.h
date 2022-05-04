@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 18:11:01 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:34:44 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ typedef	pthread_mutex_t	mutex;
 
 typedef struct s_propreties
 {
-	int philo_num; //number of philosophers
-	int p_eat; // time spent on eating
-	int p_dead; //time to wait untill dying
-	int p_sleep; //time when philosopher is sleeping
-	long long start_time; //time when program started
-	int stop; //if program should stop
-	mutex *forks; //mutexes for forks
-	int must_eat; //times when philosopher must eat
+	int philo_num;
+	int p_eat;
+	int p_dead;
+	int p_sleep; 
+	long long start_time; 
+	int stop; 
+	mutex *forks;
+	int must_eat;
 	mutex print;
 	mutex dead;
 	int flag;
@@ -41,19 +41,20 @@ typedef struct s_propreties
 
 typedef struct s_phil
 {
-    int id; //id of the philosopher 
- 	int num_eat; //number of completed meals
+    int id;
+ 	int num_eat;
+	// int *philo_eaten;
 	long long last_eat;
-	//int finish; //if philosopher is finished
-	pthread_t thread; //threads created
-	int fork_left; //mutex for left fork
-	int fork_right; //mutex for right fork
+	pthread_t thread;
+	int fork_left;
+	int fork_right;
 	t_propreties *tmp;
 }t_phil;
 
 typedef struct s_all
 { 
     t_phil *philo;
+	// int philo_eaten;
     t_propreties p;
 
 }t_all;

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:27:57 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 20:22:37 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:50:07 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int    philos(t_all *all)
 			return (0);
         index++;
     }
+	// index = 0;
+	// while(index < all->p.philo_num)
+	// {
+	// 	// all->philo[index].philo_eaten = &all->philo_eaten;
+	// 	printf("test\n");
+	// 	pthread_join(all->philo[index].thread, NULL);
+	// 	index++;
+	// }
 	is_dead(all);
 	return(1);
 }
@@ -42,6 +50,7 @@ int  philo_initialize(t_all *all)
 	all->p.start_time = the_time(); 
     all->p.stop = 0;
 	all->philo = malloc(sizeof(t_phil) * all->p.philo_num);
+	// all->philo_eaten = 0;
     if(!all->philo)
     {
         free(all->p.forks);
@@ -49,11 +58,7 @@ int  philo_initialize(t_all *all)
     }
 	if(philos(all) == -1)
 		return (0);
-	while(index < all->p.philo_num)
-	{
-		pthread_join(all->philo[index].thread, NULL);
-		index++;
-	}
+
 	return (1);
 }
 
@@ -62,7 +67,7 @@ void *philos_routine(void *arg)
 	 t_phil *philo_two;
 	 
 	philo_two = (t_phil *)arg;
-	if(philo_two->id % 2 == 0)
+	if(philo_two->id % 2)
 		usleep(10000);
 	while(!(philo_two->tmp->stop))
 	{

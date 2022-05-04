@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:16:16 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 18:28:20 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:50:41 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	print_one(t_phil *philo, char *str, int flag)
 	time = the_time();
 	pthread_mutex_lock(&philo->tmp->print);
 	
-	if(time != philo->tmp->start_time)
-	{
-		time = philo->tmp->start_time;
-	}
+	// if(time != philo->tmp->start_time)
+	// {
+	// 	time = philo->tmp->start_time;
+	// }
 	if(!philo->tmp->stop)
 	{
 		ft_putnbr_fd(time - philo->tmp->start_time, 1);

@@ -6,22 +6,15 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 22:03:54 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 18:29:17 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:53:02 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-
 int philo_eat(t_phil *philo)
 {
-	if(philo->tmp->philo_num == 1)
-	{
-		pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
-		print_one(philo, "has taken a fork\n", 0);
-		pthread_mutex_unlock(&(philo->tmp->forks[philo->fork_left]));
-		return (1);
-	}	
+
 	pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
 	print(philo, "has taken a fork\n", 0);
 	pthread_mutex_lock(&(philo->tmp->forks[philo->fork_right]));
@@ -56,6 +49,8 @@ void  is_dead(t_all *all)
 			pthread_mutex_unlock(&(all->p.dead));
 			index++;
 		}
+		// if (all->philo_eaten == all->p.philo_num)
+		// 	break ;
 		if(all->p.stop)
 			break ;
 		check_eat(all);
@@ -67,8 +62,12 @@ void check_eat(t_all *all)
 	int index;
 	
 	index = 0;
-	while(index < all->p.philo_num && all->p.must_eat != 0 && all->philo[index].num_eat > all->p.must_eat) //num.eat > num.must_eat because the last one who ate is the one who died
+	while(index < all->p.philo_num && all->p.must_eat != 0
+			&& all->philo[index].num_eat >= all->p.must_eat) //num.eat > num.must_eat because the last one who ate is the one who died
          index++;
 	if(index == all->p.philo_num)
+	{
+		pthread_mutex_lock(&(all->p.print));
 		all->p.flag = 1;
+	}
 }
