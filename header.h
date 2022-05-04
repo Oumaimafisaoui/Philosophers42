@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:34:32 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 15:46:42 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:11:01 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_propreties
 	int stop; //if program should stop
 	mutex *forks; //mutexes for forks
 	int must_eat; //times when philosopher must eat
-	mutex eat;
 	mutex print;
 	mutex dead;
 	int flag;

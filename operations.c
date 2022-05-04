@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 22:03:54 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 17:39:34 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:17:25 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int philo_eat(t_phil *philo)
 	{
 		pthread_mutex_lock(&(philo->tmp->forks[philo->fork_left]));
 		print_one(philo, "has taken left fork\n", 0);
-		// print_one(philo, "I'm alone, didn't have another fork, I died...\n", 1);
 		pthread_mutex_unlock(&(philo->tmp->forks[philo->fork_left]));
 		return (1);
 	}	

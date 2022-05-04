@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:16:38 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 15:35:18 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:01:27 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ void	end_all(t_all *all)
 	free(all->p.forks);
 	free(all->philo);
 	pthread_mutex_destroy(&all->p.print);
-	pthread_mutex_destroy(&all->p.eat);
 	pthread_mutex_destroy(&all->p.dead);
 }
