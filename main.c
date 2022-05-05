@@ -6,30 +6,29 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 02:06:55 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 20:33:24 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:06:49 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "header.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_all all;
-	int index;
+	t_all	all;
+	int		index;
 
 	index = 0;
-    if(!arguments_check(argc, argv))
+	if (!arguments_check(argc, argv))
 	{
-        exit_program(1);
-		return(0);
+		exit_program(1);
+		return (0);
 	}
-    if(!parse_init(&all, argc, argv))
-        exit_program(2);
-    if(mutex_initialize(&all))
-         exit_program(5);
-	if(!philo_initialize(&all))
+	if (!parse_init(&all, argc, argv))
+		exit_program(2);
+	if (mutex_initialize(&all))
+		exit_program(5);
+	if (!philo_initialize(&all))
 		exit_program(6);
 	end_all(&all);
-    return (0);
+	return (0);
 }

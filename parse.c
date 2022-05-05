@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 00:10:26 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 20:33:08 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/05 19:10:25 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ int	parse_init(t_all *args, int argc, char **argv)
 	if (argc == 5)
 		args->p.must_eat = 0;
 	else
-    {
-        args->p.must_eat = ft_atoi(argv[5]);
-        if (args->p.must_eat <= 0)
+	{
+		args->p.must_eat = ft_atoi(argv[5]);
+		if (args->p.must_eat <= 0)
 			return (0);
-    }	
-	if(!limits_check(args))
+	}
+	if (!limits_check(args))
 		return (0);
 	return (1);
 }
 
-int arguments_check(int argc, char **argv)
+int	arguments_check(int argc, char **argv)
 {
-	int index;
+	int	index;
 
 	index = 1;
-	if(argc < 5 || argc > 6)
+	if (argc < 5 || argc > 6)
 		return (0);
 	while (argv[index])
 	{
@@ -50,7 +50,8 @@ int arguments_check(int argc, char **argv)
 
 int	limits_check(t_all *args)
 {
-	if (args->p.philo_num <= 0 || args->p.p_sleep <= 0 || args->p.p_eat <= 0 || args->p.p_dead <= 0)
+	if (args->p.philo_num <= 0 || args->p.p_sleep <= 0 \
+	|| args->p.p_eat <= 0 || args->p.p_dead <= 0)
 		return (0);
 	return (1);
 }

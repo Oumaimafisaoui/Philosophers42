@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:16:38 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/05/04 21:37:30 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:53:56 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	end_all(t_all *all)
 {
-	int index;
-	
+	int	index;
+
 	index = 0;
-	while(all->p.philo_num--)
+	while (all->p.philo_num--)
 		pthread_mutex_destroy(&all->p.forks[all->p.philo_num]);
 	free(all->p.forks);
 	free(all->philo);

@@ -1,4 +1,4 @@
-SRC = main.c operations.c  mutex.c utils.c exit.c parse.c print_one.c philos.c time.c end_all.c print.c
+SRC = main.c operations.c  mutex.c utils.c exit.c parse.c philos.c time.c end_all.c print.c
 OBJ = $(SRC:.c=.o)
 
 NAME  = philo
